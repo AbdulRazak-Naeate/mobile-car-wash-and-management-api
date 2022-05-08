@@ -1,0 +1,21 @@
+{
+  "name": "mobile-car-wash-and-managament",
+  "version": "1.0.0",
+  "description": "Mobile Car wash and Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server"
+  },
+  "keywords": [
+    "mobile",
+    "carwash",
+    "management"
+  ],
+  "author": "Abdul Razak Abubakari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2"
+  }
+}
