@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Service = require('../models/Service');
-
+const mongoose = require('mongoose');
 
 router.get('/',async(req,res)=>{
     try{
@@ -24,10 +24,10 @@ router.get('/:serviceId',async(req,res)=>{
     }
 });
 
-router.post('/',(req,res)=>{
+router.post('/',async (req,res)=>{
    try {
        const serviceExist = await Service.findOne({name:req.body.name})
-       if (serviceExist) return res.json({status:400,message:"Serive allready taken"})
+       if (serviceExist) return res.json({status:400,message:"Service allready taken"})
        
     const service = new Service({
         name:req.body.name,
@@ -37,8 +37,8 @@ router.post('/',(req,res)=>{
 
   })
 
-   const saveSerivce = await service.Save();
-   res.send({service:saveSerivce,message:'saved successfully'});
+   const savedSerivce =  service.save();
+   res.send({service:savedSerivce,message:'saved successfully'});
    } catch (error) {
        console.log(error)
    }
@@ -57,7 +57,7 @@ router.delete('/:serviceId',async(req,res)=>{
 
 router.patch('/:serviceId',async(req,res)=>{
    try {
-    var oId= new mongoose.Types.ObjectId(req.params.productId);
+    var oId= new mongoose.Types.ObjectId(req.params.serviceId);
 
     const updateService = await Service.findOneAndUpdate(
         {_id:oId},
@@ -76,4 +76,6 @@ router.patch('/:serviceId',async(req,res)=>{
    } catch (error) {
        console.log(error)
    }
-})
+});
+
+module.exports = router

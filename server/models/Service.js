@@ -17,7 +17,7 @@ const ServiceSchema = new mongoose.Schema({
        default: 0,
    },
    duration:{
-       type:Date,
+       type:String,
        required:true,
    }
 });
