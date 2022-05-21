@@ -5,10 +5,22 @@ const BookingSchema = new mongoose.Schema({
        type:String,
        required:true,
     },
+    staffId:{
+        type:String,
+        required:false,
+     },
     services:{
         type:Array,
         default:['','',''],
         required:true,
+    },
+    vehicle:{
+        type:Object,
+        required:true,
+        default:{
+            name:'vehicle',
+            admissionCost:15
+        }
     },
     date:{
         type:Date,
@@ -36,11 +48,14 @@ const BookingSchema = new mongoose.Schema({
      },
      timeOfDay:{
          type:String,
-         required:true
+         required:false
+     },
+     bookingMethod:{
+      type:String,  /* values( POS ,MOBILE) */
+      
      },
      completeDate:{
-         type:Date,
-         
+         type:Date,  
      }
 });
 

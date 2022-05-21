@@ -1,7 +1,34 @@
 const router = require('express').Router();
 const Service = require('../models/Service');
+const verify = require('../verifyToken');
+const { cloudinary } = require('../cloudinary');
 const mongoose = require('mongoose');
 
+
+
+//upload image
+router.post('/uploadimage', async(req,res)=>{
+    var imageUrls=[];
+    var base64encImages=req.body.data
+    try {
+         for(let i=0;i<base64encImages.length;i++){
+            const fileStr  = base64encImages[i];
+            const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+                upload_preset: 'products',
+            });
+            console.log(uploadResponse);
+            imageUrls.push(uploadResponse.secure_url)
+         }     
+       res.json({ msg: 'yaya',urls:imageUrls });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ err: 'Something went wrong' });
+    }
+
+
+    
+ });
 router.get('/',async(req,res)=>{
     try{
 
@@ -24,12 +51,12 @@ router.get('/:serviceId',async(req,res)=>{
     }
 });
 
-router.post('/',async (req,res)=>{
+router.post('/',verify,async (req,res)=>{
    try {
        const serviceExist = await Service.findOne({name:req.body.name})
        if (serviceExist) return res.json({status:400,message:"Service allready taken"})
        
-    const service = new Service({
+       const service = new Service({
         name:req.body.name,
         description:req.body.description,
         cost:req.body.cost,
@@ -37,7 +64,7 @@ router.post('/',async (req,res)=>{
 
   })
 
-   const savedSerivce =  service.save();
+   const savedSerivce = await service.save();
    res.send({service:savedSerivce,message:'saved successfully'});
    } catch (error) {
        console.log(error)

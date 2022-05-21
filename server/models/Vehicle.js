@@ -6,13 +6,14 @@ const VehicleSchema = new mongoose.Schema({
        type:String,
        required:true,
    },
-   model:{
-       type:String,
-       required:true,
+   admissionCost:{
+    type:Number,
+    required:true,
+    default:0
    },
    image:{
        type:Object,
-       required:true,
+       required:false,
    }
 });
 

@@ -6,8 +6,11 @@ require('dotenv/config');
 const dotenv= require('dotenv');
 
 //import routes
-const servicesRoute = require('./routes/service')
-
+const authRoute     = require('./routes/auth');
+const servicesRoute = require('./routes/service');
+const vehicleRoute  = require('./routes/vehicle');
+const bookingRoute  = require('./routes/booking');
+const analytics     = require('./routes/analytics');
 dotenv.config();
 
 const options={ useNewUrlParser: true ,useUnifiedTopology: true }
@@ -23,7 +26,11 @@ const db = mongoose.connection
       })
 
 
-    app.use('/api/services',servicesRoute);
+    app.use('/api/service',servicesRoute);
+    app.use('/api/vehicle',vehicleRoute);
+    app.use('/api/booking',bookingRoute);
+    app.use('/api/auth',authRoute);
+
 
     app.get('/',async(req,res)=>{
 
