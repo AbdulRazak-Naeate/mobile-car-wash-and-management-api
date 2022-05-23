@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 const { cloudinary } = require('../cloudinary');
 router.get('/',async(req,res)=>{
 
-    
+
     try{
 
         const vehicle = await Vehicle.find();
         res.json({vehicle:vehicle});
         
     }catch(err){
-       console.log(err)
+       console.log(err);
     }
 });
 
@@ -34,6 +34,8 @@ router.post('/',verify,async (req,res)=>{
        if  (vehicleExist) return res.json({status:400,message:"vehicle allready taken"})
        var imageUrls=[];
        var base64encImages=req.body.data
+
+       console.log(req.body.data)
        try {
             for(let i=0;i<base64encImages.length;i++){
                const fileStr  = base64encImages[i];
@@ -43,11 +45,11 @@ router.post('/',verify,async (req,res)=>{
                console.log(uploadResponse);
                imageUrls.push(uploadResponse.secure_url)
             }     
-          res.json({ msg: 'success',urls:imageUrls });
+         // res.json({ msg: 'success',urls:imageUrls });
    
        } catch (err) {
            console.error(err);
-           res.status(500).json({ err: 'Something went wrong' });
+         return  res.status(500).json({ err: 'Something went wrong' });
        }
    
     const vehicle = new Vehicle({
