@@ -1,10 +1,10 @@
 const express = require('express');
 const app  = express();
 const mongoose = require('mongoose');
-
 require('dotenv/config');
 const dotenv= require('dotenv');
-const cors = require('cors');
+const cors  = require('cors');
+
 
 const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://mobilecarwash.herokuapp.com', 'http://mobilecarwash.herokuapp.com','https://mobilecarwash.com']
 
