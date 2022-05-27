@@ -14,7 +14,7 @@ const corsOptions = {
       if (whitelist.indexOf(origin) !== -1 || !origin) {
         console.log("Origin acceptable")
         callback(null, true);
-        
+
       } else {
         console.log("Origin rejected")
         callback(new Error('Not allowed by CORS'))
@@ -22,7 +22,7 @@ const corsOptions = {
     }
   }
 
-app.use(cors(corsOptions)); //package to allowed connection 
+app.use(cors(/* corsOptions */)); //package to allowed connection 
 app.use(express.json({limit:'50mb'}))
 
 //import routes
