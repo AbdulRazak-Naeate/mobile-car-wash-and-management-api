@@ -29,7 +29,7 @@ app.use(express.json({limit:'50mb'}))
 const authRoute     = require('./routes/auth');
 const servicesRoute = require('./routes/service');
 const vehicleRoute  = require('./routes/vehicle');
-const bookingRoute  = require('./routes/booking');
+//const bookingRoute  = require('./routes/booking');
 const analyticsRoute     = require('./routes/analytics');
 dotenv.config();
 
