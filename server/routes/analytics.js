@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const Booking = require('../models/Booking')
+const Booking = require('../models/Bookin')
 //get transactions
 
 router.get('/transactions', async (req,res)=>{
