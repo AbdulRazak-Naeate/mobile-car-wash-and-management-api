@@ -30,7 +30,7 @@ const authRoute     = require('./routes/auth');
 const servicesRoute = require('./routes/service');
 const vehicleRoute  = require('./routes/vehicle');
 //const bookingRoute  = require('./routes/booking');
-const analyticsRoute     = require('./routes/analytics');
+//const analyticsRoute     = require('./routes/analytics');
 dotenv.config();
 
 const options={ useNewUrlParser: true ,useUnifiedTopology: true }
