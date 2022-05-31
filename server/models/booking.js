@@ -24,7 +24,7 @@ const BookingSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        default:Date.now()
+        default:Date.now
      },
      cost:{
          type:Number,
@@ -59,4 +59,4 @@ const BookingSchema = new mongoose.Schema({
      }
 });
 
-module.exports = mongoose.model('Booking',BookingSchema);
+module.exports = mongoose.model('Booking',BookingSchema)

@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const Booking = require('../models/Booking');
 const mongoose = require('mongoose');
-const {bookingValidation} = require('../validation')
+const Booking  = require('../models/Booking');
+const {bookingValidation} = require('../validation');
 const verify = require('../verifyToken');
 
 router.get('/',async(req,res)=>{

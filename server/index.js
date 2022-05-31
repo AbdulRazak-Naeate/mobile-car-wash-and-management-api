@@ -29,8 +29,8 @@ app.use(express.json({limit:'50mb'}))
 const authRoute     = require('./routes/auth');
 const servicesRoute = require('./routes/service');
 const vehicleRoute  = require('./routes/vehicle');
-//const bookingRoute  = require('./routes/booking');
-//const analyticsRoute     = require('./routes/analytics');
+const bookingRoute = require('./routes/booking');
+const analyticsRoute = require('./routes/analytics')
 dotenv.config();
 
 const options={ useNewUrlParser: true ,useUnifiedTopology: true }
@@ -48,9 +48,9 @@ const port = process.env.PORT || 5000;
 
     app.use('/api/service',servicesRoute);
     app.use('/api/vehicle',vehicleRoute);
-    //app.use('/api/booking',bookingRoute);
+    app.use('/api/booking',bookingRoute);
     app.use('/api/auth',authRoute);
-    //app.use('/api/analytics',analyticsRoute);
+    app.use('/api/analytics',analyticsRoute);
 
 
     app.get('/',async(req,res)=>{
