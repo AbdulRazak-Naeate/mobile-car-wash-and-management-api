@@ -6,7 +6,7 @@ const dotenv= require('dotenv');
 const cors  = require('cors');
 
 
-const whitelist = ['http://localhost:5000', 'http://localhost:8080', 'https://car-wash-management.herokuapp.com', 'http://car-wash-management.herokuapp.com','https://car-wash-management.com']
+const whitelist = ['http://localhost:5000', 'http://localhost:8080', 'https://car-wash-management.herokuapp.com', 'http://car-wash-management.herokuapp.com','https://car-wash-management.com' ]
 
 const corsOptions = {
     origin: function (origin, callback) {
