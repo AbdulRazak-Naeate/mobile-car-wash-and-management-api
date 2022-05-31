@@ -7,12 +7,12 @@ const BookingSchema = new mongoose.Schema({
     },
     staffId:{
         type:String,
-        required:false,
+        required:false
      },
     services:{
         type:Array,
         default:['','',''],
-        required:true,
+        required:true
     },
     vehicle:{
         type:Object,
@@ -39,7 +39,7 @@ const BookingSchema = new mongoose.Schema({
         }
      },
      locationName:{
-         type:String,
+         type:String
 
      },
      status:{
@@ -55,7 +55,7 @@ const BookingSchema = new mongoose.Schema({
       
      },
      completeDate:{
-         type:Date,  
+         type:Date
      }
 });
 
