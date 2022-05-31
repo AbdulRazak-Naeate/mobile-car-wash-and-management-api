@@ -48,9 +48,9 @@ const port = process.env.PORT || 5000;
 
     app.use('/api/service',servicesRoute);
     app.use('/api/vehicle',vehicleRoute);
-    app.use('/api/booking',bookingRoute);
+    //app.use('/api/booking',bookingRoute);
     app.use('/api/auth',authRoute);
-    app.use('/api/analytics',analyticsRoute);
+    //app.use('/api/analytics',analyticsRoute);
 
 
     app.get('/',async(req,res)=>{
