@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Vehicle = require('../models/vehicle');
+const Vehicle = require('../models/Vehicle');
 const verify  = require('../verifyToken');
 const mongoose = require('mongoose');
 const { cloudinary } = require('../cloudinary');
