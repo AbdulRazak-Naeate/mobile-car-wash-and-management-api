@@ -16,6 +16,7 @@ router.get('/',async(req,res)=>{
         res.json({booking:booking});
         
     }catch(err){
+        
        console.log(err)
     }
 });
