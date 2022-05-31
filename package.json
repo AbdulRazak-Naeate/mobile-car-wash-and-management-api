@@ -4,6 +4,7 @@
   "description": "Mobile Car wash and Management",
   "main": "index.js",
   "scripts": {
+    "start": "node server -p $PORT",
     "server": "node-env-run server --exec nodemon | pino-colada"
   },
   "engines": {
