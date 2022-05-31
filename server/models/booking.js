@@ -51,7 +51,7 @@ const BookingSchema = new mongoose.Schema({
          required:false
      },
      bookingMethod:{
-      type:String,  /* values( POS ,MOBILE) */
+      type:String
       
      },
      completeDate:{
